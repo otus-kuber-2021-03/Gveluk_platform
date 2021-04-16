@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paymentservice
+  labels:
+    app: paymentservice
+    tier: paymentservice
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 0
+  selector:
+    matchLabels:
+      app: paymentservice
+      #tier: paymentservice
+  template:
+    metadata:
+      labels:
+        app: paymentservice
+        #tier: paymentservice
+    spec:
+      containers:
+      - name: server
+        image: gveluk55/hipster-paymentservice:v0.0.2
+        
