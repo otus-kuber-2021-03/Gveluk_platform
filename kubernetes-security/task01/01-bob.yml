@@ -10,9 +10,24 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: bob
-  namespace: kube-system
+  namespace: default
   apiGroup: ""
 roleRef:
   kind: ClusterRole
   name: cluster-admin
   apiGroup: ""
+# ---
+# apiVersion: rbac.authorization.k8s.io/v1
+# kind: RoleBinding
+# metadata:
+  # name: bob-binding2-role
+  # namespace: default
+# subjects:
+# - kind: ServiceAccount
+  # name: bob
+  # #namespace: default
+  # apiGroup: ""
+# roleRef:
+  # kind: Role
+  # name: admin
+  # apiGroup: ""
